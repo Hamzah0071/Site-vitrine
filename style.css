@@ -1,0 +1,406 @@
+/*******************************
+ *    VARIABLES - PALETTE VERT/BLEU
+ *******************************/
+:root {
+    --vert-principal:    #2e7d32;     /* vert forêt */
+    --vert-fonce:        #1b5e20;
+    --vert-clair:        #A5D6A7;
+    --vert-tres-clair:   #F5F5F0;
+
+    --bleu-principal:    #0288d1;     /* bleu ciel / eau */
+    --bleu-fonce:        #01579b;
+    --bleu-clair:        #4fc3f7;
+    --bleu-tres-clair:   #e3f2fd;
+
+    --gris-fonce:        #263238;
+    --gris-moyen:        #546e7a;
+    --blanc:             #ffffff;
+    --fond-clair:        #f8fafc;
+}
+
+/*******************************
+ *    RESET + BASE
+ *******************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    background-color: var(--fond-clair);
+}
+
+/*******************************
+ *    TYPO + BOUTONS
+ *******************************/
+h1, h2, h3 {
+    color: var(--vert-fonce);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, var(--vert-principal), var(--bleu-principal));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(2, 136, 209, 0.3);
+}
+
+/* =============================================
+   HEADER + NAV
+============================================= */
+header {
+    background: white;
+    padding: 1.2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--vert-fonce);
+}
+
+.logo img {
+    height: 48px;
+}
+
+nav ul {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+}
+
+nav a {
+    color: var(--gris-fonce);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--bleu-principal);
+}
+
+/* =============================================
+   HERO
+============================================= */
+#hero {
+    min-height: 85vh;
+    background: linear-gradient(rgba(27,94,32,0.55), rgba(1,87,155,0.55)),
+                url('./image/tanacetum-vulgare-4.jpg') center/cover no-repeat fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+#hero img { display: none; } /* on utilise le background */
+
+#hero p {
+    font-size: clamp(1.6rem, 4.5vw, 3rem);
+    max-width: 900px;
+    margin: 1.5rem 0 2.5rem;
+    font-weight: 400;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.65);
+}
+
+/* =============================================
+   SECTIONS COMMUNES
+============================================= */
+section {
+    padding: 6rem 5% 5rem;
+}
+
+section > p:first-child {
+    text-align: center;
+    font-size: 1.35rem;
+    color: var(--gris-moyen);
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.7;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    color: var(--vert-fonce);
+}
+
+/* Conteneur principal du carrousel */
+.carousel {
+    display: flex;
+    gap: 1.5rem;                    /* espace entre les images */
+    justify-content: center;        /* centre quand peu d'items */
+    align-items: center;
+    overflow-x: auto;               /* scroll horizontal */
+    scroll-snap-type: x mandatory;  /* snap obligatoire sur chaque item */
+    scroll-behavior: smooth;        /* scroll fluide */
+    padding: 2rem 1rem;             /* espace haut/bas + marges latérales */
+    scroll-padding: 1rem;           /* évite que le premier/dernier item colle au bord */
+    -webkit-overflow-scrolling: touch; /* scroll plus naturel sur iOS */
+    list-style: none;               /* au cas où utilisé avec <ul> */
+}
+
+/* Chaque élément du carrousel (image ou carte) */
+.carousel-item {
+    flex: 0 0 280px;                /* largeur fixe */
+    width: 280px;
+    height: 400px;
+    scroll-snap-align: center;      /* chaque item se centre parfaitement */
+    border-radius: 16px;
+    overflow: hidden;               /* pour que les images respectent le border-radius */
+    background: #f5f5f5;            /* fond neutre par défaut */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.35s ease;
+}
+
+/* Effet au survol (optionnel mais très apprécié) */
+.carousel-item:hover {
+    transform: scale(1.06);
+    box-shadow: 0 16px 40px rgba(46, 125, 50, 0.25); /* vert nature */
+}
+
+/* Pour les images à l'intérieur */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;              /* remplit bien sans déformer */
+    display: block;
+}
+
+/* Masquer la barre de scroll (esthétique) */
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: rgba(46, 125, 50, 0.4); /* vert discret */
+    border-radius: 4px;
+}
+
+.realisations-section {
+    padding: 5rem 5%;
+    background: var(--vert-tres-clair); /* ou blanc */
+}
+
+.realisations-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.avant-apres h3,
+.temoignages h3 {
+    text-align: center;
+    color: var(--vert-fonce);
+    margin-bottom: 1.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.image-pair figure {
+    position: relative;
+}
+
+.image-pair img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.image-pair figcaption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.testimonial {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    font-style: italic;
+}
+
+.testimonial footer {
+    margin-top: 1rem;
+    text-align: right;
+    font-style: normal;
+    color: var(--vert-principal);
+    font-weight: 600;
+}
+
+/* -------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+@media (min-width: 600px) {
+    .carousel-item {
+        flex: 0 0 340px;
+        width: 340px;
+        height: 460px;
+    }
+}
+
+@media (min-width: 900px) {
+    .carousel-item {
+        flex: 0 0 400px;
+        width: 400px;
+        height: 520px;
+    }
+    
+    .carousel {
+        gap: 2.5rem;
+        padding: 3rem 2rem;
+    }
+}
+
+/* Option : masquer la barre de scroll complètement sur desktop */
+@media (min-width: 1024px) {
+    .carousel::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .carousel {
+        -ms-overflow-style: none;       /* IE et Edge */
+        scrollbar-width: none;          /* Firefox */
+    }
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+    background: linear-gradient(to bottom,#518455);
+    color: #000000;
+    /* padding: 4rem 5% 3rem; */
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer address {
+    font-style: normal;
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+.social a {
+    color: #1792f7;
+    font-size: 2rem;
+    transition: all 0.3s;
+}
+
+.social a:hover {
+    color: var(--vert-clair);
+    transform: translateY(-4px);
+}
+
+.footer-legal a {
+    color: #0087f6;
+    text-decoration: none;
+}
+
+.footer-legal a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (min-width: 768px) {
+    .pare {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    header {
+        padding: 1.4rem 6%;
+    }
+
+    nav ul {
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #hero {
+        min-height: 95vh;
+    }
+
+    section {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .pare img {
+        height: 460px;
+    }
+}

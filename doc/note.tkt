@@ -1,0 +1,38 @@
+Voici les **couleurs les plus adaptées** pour un site de jardinage (pépinière, blog jardin, paysagiste, etc.) en 2026. L'objectif est de rester **naturel, apaisant, frais et organique**, tout en utilisant des **dégradés** (gradients) très tendance actuellement.
+
+### Palette principale recommandée (la plus utilisée et efficace)
+
+| Rôle                  | Couleur (Hex)         | Nom approximatif          | Utilisation recommandée                          |
+|-----------------------|-----------------------|---------------------------|--------------------------------------------------|
+| Vert principal        | #2E7D32              | Vert forêt profond        | Headers, boutons principaux, titres              |
+| Vert moyen            | #4CAF50              | Vert jardin classique     | Accents, liens, icônes                           |
+| Vert clair/frais      | #A5D6A7 → #E8F5E9    | Dégradé menthe → très clair | Fond de sections, cartes produits                |
+| Neutre beige/terre    | #F5F5F0 → #EDE7E3    | Crème sable / beige doux  | Fond principal du site                           |
+| Brun terreux          | #5D4037 → #8D6E63    | Café / bois               | Textes secondaires, bordures, pots de plantes    |
+| Blanc cassé           | #FAFAFA / #FEFEFE    | Presque blanc             | Textes sur fond vert, espace négatif             |
+| Accent jaune-vert     | #AED581 → #C5E1A5    | Vert anis / citron vert   | Call-to-action, promotions, "nouveau"            |
+
+### Les meilleurs dégradés (gradients) pour un site jardinage
+
+Voici les combinaisons de gradients les plus belles et tendance en ce moment :
+
+1. **Dégradé "Forêt matinale"** (le plus populaire actuellement)
+   ```css
+   background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 50%, #A5D6A7 100%);
+   ```
+
+2. **Dégradé "Feuille fraîche"** (très doux et moderne)
+   ```css
+   background: linear-gradient(to right, #E8F5E9, #C8E6C9, #A5D6A7);
+   ```
+
+3. **Dégradé "Jungle profonde"** (plus premium, luxueux)
+   ```css
+   background: linear-gradient(45deg, #1B5E20 0%, #388E3C 40%, #66BB6A 100%);
+   ```
+
+4. **Dégradé fond global très léger** (pour tout le site)
+   ```css
+   background: linear-gradient(to bottom, #F1F8E9 0%, #FFFFFF 70%);
+   ```
+
